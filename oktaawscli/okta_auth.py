@@ -232,7 +232,7 @@ Please enroll an MFA factor in the Okta Web UI first!""")
             headers=headers).json()
         aws_apps = []
         for app in resp:
-            if app['appName'] == "amazon_aws":
+            if app['appName'] == "amazon_aws" or 'aws' in app['appName']:
                 aws_apps.append(app)
         if not aws_apps:
             self.logger.error("No AWS apps are available for your user. \
